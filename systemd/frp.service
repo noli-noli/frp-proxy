@@ -1,0 +1,13 @@
+[Unit]
+Description=frp tunnel service
+After=network.target
+
+[Service]
+User=root
+EnvironmentFile=/etc/frp/.env
+ExecStart=/usr/local/sbin/frp/frpc -c /usr/local/sbin/frp/frpc.toml
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
