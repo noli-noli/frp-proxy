@@ -1,4 +1,4 @@
-serverAddr = "Address"
+serverAddr = ""
 serverPort = 443
 
 auth.method = "token"
@@ -6,7 +6,7 @@ auth.token = "{{ .Envs.FRP_TOKEN }}"
 transport.protocol = "websocket"
 
 [[proxies]]
-name = "frp-ssh-reverse"
+name = "sample-name"
 type = "tcp"
 localIP = "127.0.0.1"
 localPort = 22
