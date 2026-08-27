@@ -1,0 +1,38 @@
+version: "3"
+services:
+  frp-proxy:
+    container_name: frp-proxy
+    build:
+      context: .
+      dockerfile: dockerfile
+      #dockerfileにproxyアドレスを引数として渡す
+      args:
+        - http_tmp=$http_proxy
+        - https_tmp=$https_proxy
+
+    tty: true
+    #systemdを起動する
+    command: /sbin/init
+    #proxyアドレスを読込む
+    env_file:
+      - .env
+    ports:
+      #SSHポート番号
+      - "443:443"
+      #外部に公開するsshポート番号
+      - "49300:49300"
+      - "49301:49301"
+      - "49302:49302"
+      - "49303:49303"
+      - "49304:49304"
+      - "49305:49305"
+      - "49306:49306"
+      - "49307:49307"
+      - "49308:49308"
+      - "49309:49309"
+      - "49310:49310"
+      - "49311:49311"
+      - "49312:49312"
+      - "49313:49313"
+      - "49314:49314"
+      - "49315:49315"
